@@ -1,0 +1,50 @@
+ SELECT title, score
+FROM hacker_news
+ORDER BY score DESC
+LIMIT 5;
+
+SELECT  sum(score)
+FROM hacker_news;
+
+SELECT  user, sum(score) total
+FROM hacker_news
+group by user 
+having total>200;
+
+
+SELECT  user, sum(score)/6366.0
+FROM hacker_news
+group by user limit 5;
+
+SELECT  user, count(user), url
+from hacker_news where url='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+group by user;
+
+SELECT CASE
+   WHEN url LIKE '%github.com%' THEN 'GitHub'
+     WHEN url LIKE '%medium.com%' THEN 'medium'
+       WHEN url LIKE '%nytimes%'THEN 'New York Times'
+       else 'other'
+  END AS 'Source',
+  count(*)
+FROM hacker_news
+group by 1;
+
+SELECT timestamp
+FROM hacker_news
+LIMIT 10;
+
+SELECT timestamp,
+   strftime('%H', timestamp)
+FROM hacker_news
+GROUP BY 1
+LIMIT 20;
+
+SELECT timestamp,
+   strftime('%H', timestamp) hour, 
+   round(avg(score)) as avg_score,count(*)
+FROM hacker_news
+where timestamp is not null
+GROUP BY 1
+LIMIT 20;
+
