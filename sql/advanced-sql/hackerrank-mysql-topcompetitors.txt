@@ -1,0 +1,1 @@
+select k.hacker_id,h.name from (select s.hacker_id hacker_id,count(*) total from submissions sleft join challenges  using (challenge_id)left join difficulty d using (difficulty_level)where d.score=s.scoregroup by s.hacker_idhaving count(*)>1)as kleft join hackers h using(hacker_id)order by total desc, k.hacker_id;

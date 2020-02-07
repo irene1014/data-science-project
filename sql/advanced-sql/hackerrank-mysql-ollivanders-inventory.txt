@@ -1,0 +1,1 @@
+select w.id, k.a,k.m,k.p from (select  w.code code ,wp.age a,w.power p ,min(w.coins_needed) m from wands wleft join Wands_Property wp using(code)where not wp.is_evil=1group by w.power,wp.age, w.code) as kinner join wands w on (k.m=w.coins_needed and k.p=w.power and k.code=w.code)order by w.power desc, k.a desc;
