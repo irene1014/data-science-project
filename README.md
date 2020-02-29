@@ -1,4 +1,4 @@
 # data-science-project
 Codeacademy_Data Science 
 
-I am taking a data science course in codeacademy and updating SQL, Python and data visualization projects everyday. 
+I shared the projects from data scicence and computer science(data structures and algorithms)classes at Code Academy(https://www.codecademy.com/profiles/sisangCho4413656319). 
